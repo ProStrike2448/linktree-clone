@@ -34,31 +34,31 @@ export default function Login() {
     <div className="flex justify-center items-center h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
       <div className="bg-white rounded-lg shadow-xl p-12">
         <div className="flex justify-center items-center text-3xl font-bold text-gray-800 duration-500">
-          <button disabled={auth === "signIn" ? true : false} className="disabled:opacity-25 duration-500" onClick={() => setAuth("signIn")}>Sign In</button>
+          <button disabled={auth === "signIn" ? true : false} className="opacity-25 disabled:opacity-100 duration-500" onClick={() => setAuth("signIn")}>Sign In</button>
           <h5>/</h5>
-          <button disabled={auth === "signUp" ? true : false} className="disabled:opacity-25 duration-500" onClick={() => setAuth("signUp")}>Sign Up</button>
+          <button disabled={auth === "signUp" ? true : false} className="opacity-25 disabled:opacity-100 duration-500" onClick={() => setAuth("signUp")}>Sign Up</button>
         </div>
         <form className="mt-6">
-          <div className="mt-4 flex justify-left items-center">
+          <div className="mt-4 flex justify-center items-center">
             <input
               placeholder="Enter your email"
               type="email"
-              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mt-4 flex justify-left items-center">
+          <div className="mt-4 flex justify-center items-center">
             <input
               placeholder="Enter your name"
               type="text"
-              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
             />
           </div>
-          <div className="mt-4 flex justify-left items-center">
+          <div className="mt-4 flex justify-center items-center">
             <input
               placeholder="Enter your password"
               type="password"
-              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl mb-4"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl mb-4 text-center"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
