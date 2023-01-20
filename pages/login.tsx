@@ -39,26 +39,33 @@ export default function Login() {
           <button disabled={auth === "signUp" ? true : false} className="disabled:opacity-25 duration-500" onClick={() => setAuth("signUp")}>Sign Up</button>
         </div>
         <form className="mt-6">
-          <div className="mt-4">
-            <label className="block text-gray-800">Email</label>
+          <div className="mt-4 flex justify-left items-center">
             <input
+              placeholder="Enter your email"
               type="email"
-              className="mt-2 p-2 rounded-xl border border-gray-300 w-full"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl"
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="mt-4">
-            <label className="block text-gray-800">Password</label>
+          <div className="mt-4 flex justify-left items-center">
             <input
+              placeholder="Enter your name"
+              type="text"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl"
+            />
+          </div>
+          <div className="mt-4 flex justify-left items-center">
+            <input
+              placeholder="Enter your password"
               type="password"
-              className="mt-2 p-2 rounded-xl border border-gray-300 w-full"
+              className="mt-2 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl mb-4"
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <div className="mt-4">
             <button
               type="button"
-              className="bg-violet-800 rounded-full font-sans p-2 w-full text-slate-100 text-lg font-bold shadow-xl"
+              className="transition ease-in-out delay-150  bg-violet-800 rounded-full font-sans p-2 w-full text-slate-100 text-lg font-bold shadow-xl hover:text-green-400 hover:bg-violet-600 duration-300 animate-[wiggle_1s_ease-in-out_infinite]"
               onClick={auth === "signUp" ? signUpWithEmail : signInWithEmail}
             >
               Sign {auth === "signIn" ? "In" : "Up"}
