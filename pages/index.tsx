@@ -6,7 +6,7 @@ export default function Home() {
       <button
         type="button"
         className="bg-violet-800 rounded-full font-sans p-6 w-96 text-slate-100 text-lg font-bold shadow-xl animate-bounce"
-        onClick={() => Router.push("/signin")}
+        onClick={() => Router.push("/login")}
       >
         Sign In
       </button>
