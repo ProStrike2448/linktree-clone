@@ -33,7 +33,7 @@ export default function Login() {
   }
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+    <div className="flex justify-center items-center h-screen bg-gradient-circles">
       <div className="bg-white rounded-lg shadow-xl p-12">
         <div className="flex justify-center items-center text-3xl font-bold text-gray-800 duration-500 space-x-2">
           <button
@@ -56,18 +56,18 @@ export default function Login() {
           <input
             placeholder="Enter your email"
             type="email"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center hover:text-slate-100 bg-slate-800 hover:bg-violet-600 focus:bg-violet-800"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder="Enter your name"
             type="text"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center bg-slate-800 hover:bg-fuchsia-600 focus:bg-fuchsia-800"
           />
           <input
             placeholder="Enter your password"
             type="password"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center bg-slate-800 hover:bg-orange-600 focus:bg-orange-800"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
