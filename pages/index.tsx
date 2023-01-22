@@ -12,7 +12,7 @@ export default function Home() {
     getUser();
   }, []);
   return (
-    <div className="flex justify-center items-center h-screen bg-hero">
+    <div className="flex justify-center items-center h-screen bg-gradient-circles bg-center">
       <button
         type="button"
         className="bg-violet-800 rounded-full font-sans p-6 w-96 text-slate-100 text-lg font-bold shadow-xl animate-bounce"
@@ -23,4 +23,3 @@ export default function Home() {
     </div>
   );
 }
-``
