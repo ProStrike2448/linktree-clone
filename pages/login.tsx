@@ -1,11 +1,13 @@
 import supabase from "@/utils/supabaseClient";
 import Router from "next/router";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useState("signUp");
+  const Router = useRouter();
 
   async function signUpWithEmail() {
     if (email && password) {
@@ -56,18 +58,18 @@ export default function Login() {
           <input
             placeholder="Enter your email"
             type="email"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center text-black"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             placeholder="Enter your name"
             type="text"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center text-black"
           />
           <input
             placeholder="Enter your password"
             type="password"
-            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center"
+            className="mt-4 w-40 focus:w-full hover:w-full duration-700 p-2 rounded-xl text-center text-black"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button
