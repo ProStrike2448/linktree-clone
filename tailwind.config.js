@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-circles": "url('../public/diamond-sunset.svg')",
+        "gradient-circles": "url('../public/gradient.gif')",
       },
       keyframes: {
         gradient: {
