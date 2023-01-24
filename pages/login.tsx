@@ -1,7 +1,7 @@
 import supabase from "@/utils/supabaseClient";
 import Router from "next/router";
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -30,7 +30,7 @@ export default function Login() {
       if (response.error) throw response.error;
       const userId = response.data.user?.id;
       console.log(`userId: ${userId}`);
-      Router.push("/");
+      Router.push(`{user}`);
     }
   }
 
@@ -74,8 +74,9 @@ export default function Login() {
           />
           <button
             type="button"
-            className="group flex justify-center items-center mt-8 transition ease-in-out delay-150 bg-violet-800 rounded-full font-sans p-2 w-16 h-16 shadow-xl hover:bg-violet-600 duration-300 animate-wiggle"
+            className="group flex justify-center items-center mt-8 transition ease-in-out delay-150 bg-violet-800 rounded-full font-sans p-2 w-16 h-16 shadow-xl hover:bg-violet-600 animate-wiggle duration-1"
             onClick={auth === "signUp" ? signUpWithEmail : signInWithEmail}
+            
           >
             <svg
               className="h-9 w-9 group-hover:fill-current group-hover:text-green-400"
