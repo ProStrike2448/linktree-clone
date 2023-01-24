@@ -24,15 +24,14 @@ export default function User() {
     <div className="flex justify-center items-center h-screen">
       <div className="backdrop-blur bg-white/25 rounded-lg shadow-xl w-96 h-96 p-12 flex justify-center gap-8">
         <div className="flex justify-center h-20 gap-8">
-          <div className="relative w-20 h-20">
             <Image
               src="https://pure.au.dk/portal/files/126962919/Nickolaj_Kristensen_PURE.jpg"
               alt="Profile Picture"
-              fill={true}
+              width={80}
+              height={80}
               priority={true}
               className="object-cover rounded-full overflow-hidden"
             />
-          </div>
           <h1 className="font-semibold text-white text-2xl self-center">{"Nickolaj"}</h1>
         </div>
       </div>
