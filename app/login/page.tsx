@@ -1,36 +1,42 @@
 "use client";
 
-import supabase from "@/utils/supabaseClient";
-import Router from "next/router";
+import { useSupabase } from "@/components/supabase-provider";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
+  const { supabase } = useSupabase();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [auth, setAuth] = useState("signUp");
+  const router = useRouter();
 
   async function signUpWithEmail() {
     if (email && password) {
-      const response = await supabase.auth.signUp({
+      const { data, error } = await supabase.auth.signUp({
         email: email,
         password: password,
       });
-      if (response.error) throw response.error;
-      const userId = response.data.user?.id;
-      console.log(`userId: ${userId}`);
+
+      if (error) {
+        console.log({ error });
+      }
+      console.log({ data });
     }
   }
 
   async function signInWithEmail() {
     if (email && password) {
-      const response = await supabase.auth.signInWithPassword({
+      const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       });
-      if (response.error) throw response.error;
-      const userId = response.data.user?.id;
-      console.log(`userId: ${userId}`);
-      Router.push("/");
+      if (error) {
+        console.log({ error });
+      }
+      console.log({ data });
+      router.push(`/${data.user?.id}`);
     }
   }
 
