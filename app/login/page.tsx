@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function Login() {
-  const { supabase } = useSupabase();
+  const { supabase, session } = useSupabase();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

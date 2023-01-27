@@ -6,9 +6,9 @@ import SupabaseProvider from "@/components/supabase-provider";
 import "@/styles/globals.css";
 import { createServerClient } from "@/utils/supabase-server";
 
-import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/lib/database.types";
 import Login from "@/components/login";
+import { Database } from "@/lib/database.types";
+import type { SupabaseClient } from "@supabase/auth-helpers-nextjs";
 
 export type TypedSupabaseClient = SupabaseClient<Database>;
 
@@ -36,7 +36,8 @@ export default async function RootLayout({
       <head />
       <body className="bg-slate-900">
         <SupabaseProvider session={session}>
-          <SupabaseListener serverAccessToken={session?.access_token} /><Login />
+          <SupabaseListener serverAccessToken={session?.access_token} />
+          <Login />
           {children}
         </SupabaseProvider>
       </body>
