@@ -1,23 +1,50 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
-export default function ProfileCard({serverData}) {
+type Link = {
+  title: string;
+  url: string;
+};
+
+type UserData = {
+  username: string | null;
+  avatar_url: string | null;
+  links: Link[];
+};
+
+export default function ProfileCard({ serverData }: { serverData: UserData }) {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="backdrop-blur bg-white/25 rounded-lg shadow-xl w-80 h-96 p-6 flex justify-center gap-8">
-        <div className="flex justify-center h-20 gap-8">
-          <Image
-            src="https://pure.au.dk/portal/files/126962919/Nickolaj_Kristensen_PURE.jpg"
-            alt="Profile Picture"
-            width={80}
-            height={80}
-            priority={true}
-            className="object-cover rounded-full overflow-hidden"
-          />
+    <div className="min-h-screen bg-slate-800 flex items-center">
+      <div className="container mx-auto p-10 backdrop-blur bg-white/25 max-w-md rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
+        <section className="flex justify-center items-center gap-10">
+          <div className="relative w-24 h-24">
+            <Image
+              src="https://pure.au.dk/portal/files/126962919/Nickolaj_Kristensen_PURE.jpg"
+              alt="Profile Picture"
+              fill={true}
+              priority={true}
+              className="rounded-full object-cover"
+            />
+          </div>
           <h1 className="font-semibold text-white text-2xl self-center">
             {serverData.username}
           </h1>
+        </section>
+        <div className="flex flex-col justify-center items-center mt-6">
+          {serverData.links?.map((link: Link, index: number) => (
+            <Link
+              className="text-white text-md text-center font-semibold bg-cyan-400 mt-2 py-2 w-11/12 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110"
+              href={link.url}
+              key={index}
+            >
+              {link.title}
+            </Link>
+          ))}
+          <button className="text-white text-md text-center font-bold bg-cyan-400 mt-2 py-2 w-11/12 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110">
+          +
+          </button>
         </div>
       </div>
     </div>

@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import type { Session } from '@supabase/auth-helpers-nextjs';
-import { createContext, useContext, useState } from 'react';
-import type { TypedSupabaseClient } from '@/app/layout';
-import { createBrowserClient } from '@/utils/supabase-browser';
+import type { TypedSupabaseClient } from "@/app/layout";
+import { createBrowserClient } from "@/utils/supabase-browser";
+import { Session } from "@supabase/auth-helpers-nextjs";
+import { createContext, useContext, useState } from "react";
 
 type MaybeSession = Session | null;
 
@@ -12,12 +12,12 @@ type SupabaseContext = {
   session: MaybeSession;
 };
 
-// @ts-ignore
+//@ts-ignore
 const Context = createContext<SupabaseContext>();
 
 export default function SupabaseProvider({
   children,
-  session
+  session,
 }: {
   children: React.ReactNode;
   session: MaybeSession;

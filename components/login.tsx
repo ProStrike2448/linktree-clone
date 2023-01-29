@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { useSupabase } from './supabase-provider';
+import { useSupabase } from "./supabase-provider";
 
 // Supabase auth needs to be triggered client-side
 export default function Login() {
@@ -8,8 +8,8 @@ export default function Login() {
 
   const handleEmailLogin = async () => {
     const { error } = await supabase.auth.signInWithPassword({
-      email: 'ostapenko.andrey03@gmail.com',
-      password: 'abobus228'
+      email: "ostapenko.andrey03@gmail.com",
+      password: "abobus228",
     });
 
     if (error) {
@@ -31,8 +31,6 @@ export default function Login() {
   return session ? (
     <button onClick={handleLogout}>Logout</button>
   ) : (
-    <>
-      <button onClick={handleEmailLogin}>Login</button>
-    </>
+    <button onClick={handleEmailLogin}>Login</button>
   );
 }

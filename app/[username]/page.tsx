@@ -17,12 +17,14 @@ export default async function Profile({
   const { data, error } = await supabase
     .from("profiles")
     .select(`username, avatar_url, links (title, url)`)
-    .eq("username", params.username).single();
+    .eq("username", params.username)
+    .single();
 
   if (error) console.log(error);
 
   if (!data) {
     return notFound();
   }
-  return (<ProfileCard serverData={data || null}/>);
+  // return <pre>{JSON.stringify(data, null, 2)}</pre>;
+  return <ProfileCard serverData={data} />;
 }
