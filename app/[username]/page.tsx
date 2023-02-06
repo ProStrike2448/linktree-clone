@@ -16,10 +16,10 @@ export default async function Profile({
 
   const { data, error } = await supabase
     .from("profiles")
-    .select(`username, avatar_url, links (title, url)`)
+    .select(`id, username, avatar_url, links (title, url)`)
     .eq("username", params.username)
     .single();
-
+  console.log(data);
   if (error) console.log(error);
 
   if (!data) {

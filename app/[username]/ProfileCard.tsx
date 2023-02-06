@@ -1,7 +1,10 @@
 "use client";
 
+import { useSupabase } from "@/components/supabase-provider";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
+import AddLinkForm from "./AddLinkForm";
 
 type Link = {
   title: string;
@@ -9,12 +12,18 @@ type Link = {
 };
 
 type UserData = {
+  id: string;
   username: string | null;
   avatar_url: string | null;
   links: Link[];
 };
 
 export default function ProfileCard({ serverData }: { serverData: UserData }) {
+  const { supabase, session } = useSupabase();
+  const [isUser, setIsUser] = useState(false);
+  const [form, setForm] = useState(false);
+  if 
+  if (serverData.id === session.user?.id) { }
   return (
     <div className="min-h-screen bg-slate-800 flex items-center">
       <div className="container mx-auto p-10 backdrop-blur bg-white/25 max-w-md rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-300">
@@ -42,9 +51,15 @@ export default function ProfileCard({ serverData }: { serverData: UserData }) {
               {link.title}
             </Link>
           ))}
-          <button className="text-white text-md text-center font-bold bg-cyan-400 mt-2 py-2 w-11/12 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110">
-          +
-          </button>
+          {session && !form && (
+            <button
+              className="text-white text-md text-center font-bold bg-cyan-400 mt-2 py-2 w-11/12 rounded-lg shadow-md hover:shadow-lg transition duration-500 transform-gpu hover:scale-110"
+              onClick={() => setForm(!form)}
+            >
+              +
+            </button>
+          )}
+          {form && <AddLinkForm />}
         </div>
       </div>
     </div>

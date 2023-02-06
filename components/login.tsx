@@ -7,11 +7,11 @@ export default function Login() {
   const { supabase, session } = useSupabase();
 
   const handleEmailLogin = async () => {
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await supabase.auth.signInWithPassword({
       email: "ostapenko.andrey03@gmail.com",
       password: "abobus228",
     });
-
+    console.log(data);
     if (error) {
       console.log({ error });
     }
